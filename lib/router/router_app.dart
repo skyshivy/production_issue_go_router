@@ -6,6 +6,7 @@ import 'package:flutter_deployment_issue/Screens/screen_six.dart';
 import 'package:flutter_deployment_issue/Screens/screen_three.dart';
 import 'package:flutter_deployment_issue/Screens/screen_two.dart';
 import 'package:flutter_deployment_issue/router/route_name.dart';
+import 'package:flutter_deployment_issue/web_bar/web_app_bar.dart';
 import 'package:go_router/go_router.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
@@ -38,6 +39,7 @@ StatefulShellBranch _oneScreenRoute() {
     routes: <RouteBase>[
       GoRoute(
         path: oneRoute,
+        name: oneRoute,
         builder: (context, state) {
           return ScreenOne();
         },
@@ -51,6 +53,7 @@ StatefulShellBranch _twoScreenRoute() {
     routes: <RouteBase>[
       GoRoute(
         path: twoRoute,
+        name: twoRoute,
         builder: (context, state) {
           return ScreenTwo();
         },
@@ -64,6 +67,7 @@ StatefulShellBranch _threeScreenRoute() {
     routes: <RouteBase>[
       GoRoute(
         path: threeRoute,
+        name: threeRoute,
         builder: (context, state) {
           return ScreenThree();
         },
@@ -77,6 +81,7 @@ StatefulShellBranch _fourScreenRoute() {
     routes: <RouteBase>[
       GoRoute(
         path: fourRoute,
+        name: fourRoute,
         builder: (context, state) {
           return ScreenFour();
         },
@@ -90,6 +95,7 @@ StatefulShellBranch _fiveScreenRoute() {
     routes: <RouteBase>[
       GoRoute(
         path: fiveRoute,
+        name: fiveRoute,
         builder: (context, state) {
           return ScreenFive();
         },
@@ -103,6 +109,7 @@ StatefulShellBranch _sixScreenRoute() {
     routes: <RouteBase>[
       GoRoute(
         path: sixRoute,
+        name: sixRoute,
         builder: (context, state) {
           return ScreenSix();
         },
@@ -114,7 +121,13 @@ StatefulShellBranch _sixScreenRoute() {
 Widget errorWidget(BuildContext context, GoRouterState state) {
   return Scaffold(
       body: Container(
-    color: Colors.red,
+    color: Colors.white,
+    child: const Center(
+      child: Text(
+        "Not page found",
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    ),
   ));
 }
 
@@ -124,5 +137,11 @@ Widget shellRouteIndex(BuildContext context, GoRouterState state,
 
   print("SKY state.name  = ${state.fullPath}");
 
-  return navigationShell;
+  return Material(
+      child: Column(
+    children: [
+      WebAppBar(),
+      Expanded(child: navigationShell),
+    ],
+  ));
 }

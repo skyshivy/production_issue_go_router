@@ -4,9 +4,16 @@ class ScreenThree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        "Screen Three",
-        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      child: Container(
+        height: 300,
+        width: 300,
+        color: Colors.blue,
+        child: Center(
+          child: Text(
+            "Screen Three",
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
   }
