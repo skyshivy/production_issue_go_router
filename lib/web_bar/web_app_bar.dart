@@ -3,6 +3,7 @@ import 'package:flutter_deployment_issue/router/route_name.dart';
 import 'package:go_router/go_router.dart';
 
 class WebAppBar extends StatelessWidget {
+  Color color = Colors.black;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,32 +20,41 @@ class WebAppBar extends StatelessWidget {
             onPressed: () {
               context.goNamed(oneRoute);
             },
-            child: Text("One")),
+            child: Text(
+              "One",
+              style: TextStyle(fontWeight: FontWeight.bold, color: color),
+            )),
         TextButton(
-            onPressed: () {
-              context.goNamed(twoRoute);
-            },
-            child: Text("Two")),
+          onPressed: () {
+            context.goNamed(twoRoute);
+          },
+          child: Text("Two",
+              style: TextStyle(fontWeight: FontWeight.bold, color: color)),
+        ),
         TextButton(
             onPressed: () {
               context.goNamed(threeRoute);
             },
-            child: Text("Three")),
+            child: Text("Three",
+                style: TextStyle(fontWeight: FontWeight.bold, color: color))),
         TextButton(
             onPressed: () {
               context.goNamed(fourRoute);
             },
-            child: Text("Four")),
+            child: Text("Four",
+                style: TextStyle(fontWeight: FontWeight.bold, color: color))),
         TextButton(
             onPressed: () {
               context.goNamed(fiveRoute);
             },
-            child: Text("Five")),
+            child: Text("Five",
+                style: TextStyle(fontWeight: FontWeight.bold, color: color))),
         TextButton(
             onPressed: () {
               context.goNamed(sixRoute);
             },
-            child: Text("Six")),
+            child: Text("Six",
+                style: TextStyle(fontWeight: FontWeight.bold, color: color))),
       ],
     );
   }
